@@ -59,14 +59,14 @@ jobs:
     
     #Download the publish files created in previous job
     - name: Download artifact from build job
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v7
       with:
         name: .net-app
         path: .net-app
   
     #Download the bicep templates from previous job
     - name: Download artifact from build job
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v7
       with:
         name: bicep-template
         path: bicep-template
@@ -75,7 +75,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v2
       with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE }}
           
     # Deploy Azure WebApp using Bicep file
     - name: deploy
